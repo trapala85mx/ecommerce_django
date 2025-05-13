@@ -30,10 +30,14 @@ class Product(models.Model):
     Django Model to represent a Product.
     """
 
-    category = models.ForeignKey(to=Categorie, on_delete=models.RESTRICT)
+    category = models.ForeignKey(
+        to=Categorie,
+        on_delete=models.RESTRICT,
+        verbose_name="Categoría",
+    )
     name = models.CharField(max_length=100, verbose_name="Producto")
     description = models.TextField(verbose_name="Descripción", null=True)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Precio")
     image = models.ImageField(upload_to="productos/", verbose_name="Imagen")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Fecha creación")
     updated_at = models.DateTimeField(
