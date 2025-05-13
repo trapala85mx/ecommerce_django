@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "web",
 ]
 
 MIDDLEWARE = [
@@ -118,7 +119,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "static/"  # url de acceso dominio.com/static/
+STATIC_ROOT = BASE_DIR / "staticfiles"  # carpeta donde guardará en producción
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]  # Carpeta global a nivel proyecto
+
+# Multimedia / files uploaded by users
+MEDIA_ROOT = Path(BASE_DIR, "media")
+MEDIA_URL = "media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
