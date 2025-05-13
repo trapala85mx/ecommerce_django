@@ -127,7 +127,7 @@ STATICFILES_DIRS = [
 
 # Multimedia / files uploaded by users
 MEDIA_ROOT = Path(BASE_DIR, "media")
-MEDIA_URL = "media"
+MEDIA_URL = "media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
