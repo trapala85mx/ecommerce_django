@@ -35,7 +35,9 @@ def productos_por_categoria(request, categoria_id: int):
 def barra_busqueda(request: HttpRequest):
     """Vista para la barra de búsqueda"""
     nombre = request.POST["nombre"]
-    products = Product.objects.filter(name__contains=nombre)
+    print(nombre)
+    products = Product.objects.filter(name__icontains=nombre)
+    print(products)
     categories = Categorie.objects.all()
 
     context = {
@@ -44,3 +46,9 @@ def barra_busqueda(request: HttpRequest):
     }
 
     return render(request, "index.html", context)
+
+
+# VISTAS PARA EL CARRITO DE COMPRAS
+def carrito(request):
+    """Vista para el carrito de compras"""
+    return (request, "carrito.html")

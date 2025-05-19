@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import index, productos_por_categoria
+from .views import barra_busqueda, index, productos_por_categoria
 
 app_name = "web"
 
@@ -11,4 +11,5 @@ urlpatterns = [
         view=productos_por_categoria,
         name="productos_categoria",
     ),
+    path("buscar-producto/", view=barra_busqueda, name="barra_busqueda"),
 ]
