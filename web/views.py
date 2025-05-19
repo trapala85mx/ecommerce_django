@@ -1,5 +1,5 @@
 from django.http import HttpRequest
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from .models import Categorie, Product
 
@@ -46,6 +46,16 @@ def barra_busqueda(request: HttpRequest):
     }
 
     return render(request, "index.html", context)
+
+
+def detalle_producto(request: HttpRequest, producto_id: int):
+    """Vista para el detalle de un producto"""
+    # producto_instance = Product.objects.get(pk=producto_id)
+    producto_instance = get_object_or_404(Product, pk=producto_id)
+    context = {
+        "product": producto_instance,
+    }
+    return render(request, "producto.html", context)
 
 
 # VISTAS PARA EL CARRITO DE COMPRAS
